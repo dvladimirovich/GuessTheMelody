@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmParams));
             this.lbMusicTrack = new System.Windows.Forms.ListBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.btnClearList = new System.Windows.Forms.Button();
@@ -108,6 +109,7 @@
             this.Controls.Add(this.btnClearList);
             this.Controls.Add(this.btnSelectFolder);
             this.Controls.Add(this.lbMusicTrack);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmParams";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Настройки";
