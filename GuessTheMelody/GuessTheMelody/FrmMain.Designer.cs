@@ -53,6 +53,7 @@
             this.btnParams.TabIndex = 0;
             this.btnParams.Text = "Настройки";
             this.btnParams.UseVisualStyleBackColor = true;
+            this.btnParams.Click += new System.EventHandler(this.btnParams_Click);
             // 
             // btnExit
             // 
@@ -80,6 +81,7 @@
             this.MaximumSize = new System.Drawing.Size(380, 383);
             this.MinimumSize = new System.Drawing.Size(380, 383);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Угадай мелодию";
             this.ResumeLayout(false);
 
