@@ -19,7 +19,7 @@ namespace GuessTheMelody
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            wmp.URL = Victorina.List[1];
+            wmp.URL = Victorina.TrackList[1];
         }
     }
 }

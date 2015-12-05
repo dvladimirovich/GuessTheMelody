@@ -33,8 +33,8 @@ namespace GuessTheMelody
                                                                  : SearchOption.TopDirectoryOnly);
                     lbMusicTrack.Items.Clear();
                     lbMusicTrack.Items.AddRange(musicArray);
-                    Victorina.List.Clear();
-                    Victorina.List.AddRange(musicArray);
+                    Victorina.TrackList.Clear();
+                    Victorina.TrackList.AddRange(musicArray);
                 }
             }
         }
