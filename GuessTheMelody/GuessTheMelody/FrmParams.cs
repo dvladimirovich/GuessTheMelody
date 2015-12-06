@@ -11,13 +11,26 @@ namespace GuessTheMelody
             InitializeComponent();
         }
 
+        private void FrmParams_Load(object sender, EventArgs e)
+        {
+            SetParams();
+            lbMusicTrack.Items.Clear();
+            lbMusicTrack.Items.AddRange(Victorina.TrackList.ToArray());
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Victorina.AllDirectories = chkbAllDirectories.Checked;
+            Victorina.RandomStart = chkbRandomStart.Checked;
+            Victorina.GameDuration = Convert.ToInt32(cbGameDuration.Text);
+            Victorina.MusicDuration = Convert.ToInt32(cbMusicDuration.Text);
+            Victorina.SaveParam();
             Hide();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            SetParams();
             Hide();
         }
 
@@ -31,6 +44,7 @@ namespace GuessTheMelody
                                                              chkbAllDirectories.Checked
                                                                  ? SearchOption.AllDirectories
                                                                  : SearchOption.TopDirectoryOnly);
+                    Victorina.LastFolder = fbd.SelectedPath;
                     lbMusicTrack.Items.Clear();
                     lbMusicTrack.Items.AddRange(musicArray);
                     Victorina.TrackList.Clear();
@@ -38,5 +52,14 @@ namespace GuessTheMelody
                 }
             }
         }
+
+        private void SetParams()
+        {
+            chkbAllDirectories.Checked = Victorina.AllDirectories;
+            chkbRandomStart.Checked = Victorina.RandomStart;
+            cbGameDuration.Text = Victorina.GameDuration.ToString();
+            cbMusicDuration.Text = Victorina.MusicDuration.ToString();
+        }
+
     }
 }
