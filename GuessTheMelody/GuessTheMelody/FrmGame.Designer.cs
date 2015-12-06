@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGame));
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnNext = new System.Windows.Forms.Button();
@@ -37,13 +38,16 @@
             this.lblCounter2 = new System.Windows.Forms.Label();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnContinue = new System.Windows.Forms.Button();
+            this.lblSongsCounter = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
             // WMP
             // 
             this.WMP.Enabled = true;
-            this.WMP.Location = new System.Drawing.Point(3, 339);
+            this.WMP.Location = new System.Drawing.Point(64, 163);
             this.WMP.Name = "WMP";
             this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
             this.WMP.Size = new System.Drawing.Size(205, 51);
@@ -124,7 +128,7 @@
             this.btnPause.TabIndex = 1;
             this.btnPause.Text = "Пауза";
             this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnContinue
             // 
@@ -135,7 +139,35 @@
             this.btnContinue.TabIndex = 1;
             this.btnContinue.Text = "Продолжить";
             this.btnContinue.UseVisualStyleBackColor = true;
-            this.btnContinue.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
+            // lblSongsCounter
+            // 
+            this.lblSongsCounter.AutoSize = true;
+            this.lblSongsCounter.BackColor = System.Drawing.Color.Transparent;
+            this.lblSongsCounter.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblSongsCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSongsCounter.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSongsCounter.Location = new System.Drawing.Point(167, 58);
+            this.lblSongsCounter.Name = "lblSongsCounter";
+            this.lblSongsCounter.Size = new System.Drawing.Size(32, 33);
+            this.lblSongsCounter.TabIndex = 2;
+            this.lblSongsCounter.Text = "0";
+            this.lblSongsCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(13, 261);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(339, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 3;
+            this.progressBar1.Value = 50;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmGame
             // 
@@ -143,7 +175,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GuessTheMelody.Properties.Resources.music_2;
             this.ClientSize = new System.Drawing.Size(364, 345);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblCounter2);
+            this.Controls.Add(this.lblSongsCounter);
             this.Controls.Add(this.lblCounter1);
             this.Controls.Add(this.lblPlayer2);
             this.Controls.Add(this.lblPlayer1);
@@ -158,6 +192,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmGame";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmGame_FormClosed);
+            this.Load += new System.EventHandler(this.FrmGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -174,5 +209,8 @@
         private System.Windows.Forms.Label lblCounter2;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.Label lblSongsCounter;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
