@@ -13,11 +13,17 @@ namespace GuessTheMelody
     public partial class FrmMain : Form
     {
         private FrmParams frmParams = new FrmParams();
-        private FrmGame FrmGame = new FrmGame();
+        private FrmGame frmGame = new FrmGame();
 
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            Victorina.ReadParam();
+            Victorina.ReadMusic();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -32,7 +38,7 @@ namespace GuessTheMelody
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            FrmGame.ShowDialog();
+            frmGame.ShowDialog();
         }
     }
 }
