@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Win32;
 
 namespace GuessTheMelody
@@ -18,18 +15,6 @@ namespace GuessTheMelody
         /// </summary>
         static public List<string> TrackList = new List<string>();
         /// <summary>
-        /// Продолжительность игры. Значение по умолчанию - 60 секунд
-        /// </summary>
-        public static int GameDuration = 60;
-        /// <summary>
-        /// Продолжительность проигрывания трека. Значение по умолчанию - 10 секунд
-        /// </summary>
-        public static int MusicDuration = 10;
-        /// <summary>
-        /// Начинать проигрывать композицию сначала или со случайного места. Значение по умолчанию - сначала
-        /// </summary>
-        public static bool RandomStart = false;
-        /// <summary>
         /// Путь к последней выбранной папке.
         /// </summary>
         public static string LastFolder = string.Empty;
@@ -37,17 +22,33 @@ namespace GuessTheMelody
         /// Включать ли вложенные каталоги при загрузке треков. Значение по умолчанию - не включать
         /// </summary>
         public static bool AllDirectories = false;
-        
+        /// <summary>
+        /// Начинать проигрывать композицию сначала или со случайного места. Значение по умолчанию - сначала
+        /// </summary>
+        public static bool RandomStart = false;
+        /// <summary>
+        /// Продолжительность игры. Значение по умолчанию - 60 секунд
+        /// </summary>
+        public static int GameDuration = 60;
+        /// <summary>
+        /// Продолжительность проигрывания трека. Значение по умолчанию - 10 секунд
+        /// </summary>
+        public static int MusicDuration = 10;
+
         /// <summary>
         /// Считать музыкальные композиции
         /// </summary>
-        static public void ReadMusic()
+        public static void ReadMusic()
         {
-            string[] musicArray = Directory.GetFiles(LastFolder, "*.mp3", AllDirectories
-                                                                              ? SearchOption.AllDirectories
-                                                                              : SearchOption.TopDirectoryOnly);
-            TrackList.Clear();
-            TrackList.AddRange(musicArray);
+            try
+            {
+                string[] musicArray = Directory.GetFiles(LastFolder, "*.mp3", AllDirectories
+                                                                                  ? SearchOption.AllDirectories
+                                                                                  : SearchOption.TopDirectoryOnly);
+                TrackList.Clear();
+                TrackList.AddRange(musicArray);
+            }
+            catch {}
         }
 
         private static string regKeyName = @"Software\MyCompanyName\GuessTheMelody";
