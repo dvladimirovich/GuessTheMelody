@@ -56,6 +56,7 @@
             this.WMP.Size = new System.Drawing.Size(205, 51);
             this.WMP.TabIndex = 0;
             this.WMP.Visible = false;
+            this.WMP.OpenStateChange += new AxWMPLib._WMPOCXEvents_OpenStateChangeEventHandler(this.WMP_OpenStateChange);
             // 
             // btnNext
             // 
@@ -232,7 +233,6 @@
             this.Name = "FrmGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmGame";
-            this.Activated += new System.EventHandler(this.FrmGame_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmGame_FormClosed);
             this.Load += new System.EventHandler(this.FrmGame_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGame_KeyDown);

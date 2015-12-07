@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace GuessTheMelody
 {
@@ -35,7 +36,6 @@ namespace GuessTheMelody
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
             timer1.Start();
             MakeMusic();
         }
@@ -58,15 +58,16 @@ namespace GuessTheMelody
             if (Victorina.TrackList.Count == 0)
             {
                 GameStop();
-                return;
             }
-            musicDuration = Victorina.MusicDuration;
-            progressBar1.Value = 0;
-            int n = rand.Next(0, Victorina.TrackList.Count);
-            WMP.URL = Victorina.TrackList[n];
-            // wmp.Ctlcontrols.play(); // для автоматической игры
-            Victorina.TrackList.RemoveAt(n);
-            lblSongsCounter.Text = Victorina.TrackList.Count.ToString();
+            else
+            {
+                musicDuration = Victorina.MusicDuration;
+                int n = rand.Next(0, Victorina.TrackList.Count);
+                WMP.URL = Victorina.TrackList[n];
+                // wmp.Ctlcontrols.play(); // для автоматической игры
+                Victorina.TrackList.RemoveAt(n);
+                lblSongsCounter.Text = Victorina.TrackList.Count.ToString();
+            }
         }
 
         /// <summary>
@@ -115,7 +116,9 @@ namespace GuessTheMelody
             if (e.KeyData == Keys.A) // Игрок 1
             {
                 GamePause();
-                if (MessageBox.Show("Правильный ответ?", "Игрок 1", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                FrmMessage message = new FrmMessage();
+                message.label1.Text = "Игрок 1";
+                if (message.ShowDialog() == DialogResult.Yes) /* MessageBox.Show("Правильный ответ?", "Игрок 1", MessageBoxButtons.YesNo) == DialogResult.Yes*/
                 {
                     lblCounter1.Text = (Convert.ToInt32(lblCounter1.Text) + 1).ToString();
                     MakeMusic();
@@ -125,7 +128,9 @@ namespace GuessTheMelody
             if (e.KeyData == Keys.P) // Игрок 2
             {
                 GamePause();
-                if (MessageBox.Show("Правильный ответ?", "Игрок 2", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                FrmMessage message = new FrmMessage();
+                message.label1.Text = "Игрок 2";
+                if (message.ShowDialog() == DialogResult.Yes) /*MessageBox.Show("Правильный ответ?", "Игрок 2", MessageBoxButtons.YesNo) == DialogResult.Yes*/
                 {
                     lblCounter2.Text = (Convert.ToInt32(lblCounter2.Text) + 1).ToString();
                     MakeMusic();
@@ -134,9 +139,15 @@ namespace GuessTheMelody
             }
         }
 
-        private void FrmGame_Activated(object sender, EventArgs e)
+        private void WMP_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)
         {
-            //MessageBox.Show("FrmGame_Activated");
+            if (Victorina.RandomStart)
+            {
+                if (WMP.openState == WMPOpenState.wmposMediaOpen)
+                {
+                    WMP.Ctlcontrols.currentPosition = rand.Next(0, (int) (WMP.currentMedia.duration / 2));
+                }
+            }
         }
     }
 }
