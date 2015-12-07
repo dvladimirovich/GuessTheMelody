@@ -41,13 +41,16 @@
             this.lblSongsCounter = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblMusicDuration = new System.Windows.Forms.Label();
+            this.lblSongsCountTxt = new System.Windows.Forms.Label();
+            this.lblMusicDurTxt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
             // WMP
             // 
             this.WMP.Enabled = true;
-            this.WMP.Location = new System.Drawing.Point(64, 163);
+            this.WMP.Location = new System.Drawing.Point(140, 204);
             this.WMP.Name = "WMP";
             this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
             this.WMP.Size = new System.Drawing.Size(205, 51);
@@ -148,7 +151,7 @@
             this.lblSongsCounter.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblSongsCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblSongsCounter.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSongsCounter.Location = new System.Drawing.Point(167, 58);
+            this.lblSongsCounter.Location = new System.Drawing.Point(176, 110);
             this.lblSongsCounter.Name = "lblSongsCounter";
             this.lblSongsCounter.Size = new System.Drawing.Size(32, 33);
             this.lblSongsCounter.TabIndex = 2;
@@ -169,14 +172,51 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lblMusicDuration
+            // 
+            this.lblMusicDuration.AutoSize = true;
+            this.lblMusicDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblMusicDuration.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblMusicDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMusicDuration.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMusicDuration.Location = new System.Drawing.Point(176, 149);
+            this.lblMusicDuration.Name = "lblMusicDuration";
+            this.lblMusicDuration.Size = new System.Drawing.Size(32, 33);
+            this.lblMusicDuration.TabIndex = 2;
+            this.lblMusicDuration.Text = "0";
+            this.lblMusicDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSongsCountTxt
+            // 
+            this.lblSongsCountTxt.AutoSize = true;
+            this.lblSongsCountTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSongsCountTxt.Location = new System.Drawing.Point(52, 119);
+            this.lblSongsCountTxt.Name = "lblSongsCountTxt";
+            this.lblSongsCountTxt.Size = new System.Drawing.Size(118, 16);
+            this.lblSongsCountTxt.TabIndex = 4;
+            this.lblSongsCountTxt.Text = "Осталось песен: ";
+            // 
+            // lblMusicDurTxt
+            // 
+            this.lblMusicDurTxt.AutoSize = true;
+            this.lblMusicDurTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMusicDurTxt.Location = new System.Drawing.Point(12, 158);
+            this.lblMusicDurTxt.Name = "lblMusicDurTxt";
+            this.lblMusicDurTxt.Size = new System.Drawing.Size(158, 16);
+            this.lblMusicDurTxt.TabIndex = 4;
+            this.lblMusicDurTxt.Text = "Длительность музыки: ";
+            // 
             // FrmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GuessTheMelody.Properties.Resources.music_2;
             this.ClientSize = new System.Drawing.Size(364, 345);
+            this.Controls.Add(this.lblMusicDurTxt);
+            this.Controls.Add(this.lblSongsCountTxt);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblCounter2);
+            this.Controls.Add(this.lblMusicDuration);
             this.Controls.Add(this.lblSongsCounter);
             this.Controls.Add(this.lblCounter1);
             this.Controls.Add(this.lblPlayer2);
@@ -186,13 +226,16 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.WMP);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(380, 383);
             this.MinimumSize = new System.Drawing.Size(380, 383);
             this.Name = "FrmGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmGame";
+            this.Activated += new System.EventHandler(this.FrmGame_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmGame_FormClosed);
             this.Load += new System.EventHandler(this.FrmGame_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGame_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -212,5 +255,8 @@
         private System.Windows.Forms.Label lblSongsCounter;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblMusicDuration;
+        private System.Windows.Forms.Label lblSongsCountTxt;
+        private System.Windows.Forms.Label lblMusicDurTxt;
     }
 }
