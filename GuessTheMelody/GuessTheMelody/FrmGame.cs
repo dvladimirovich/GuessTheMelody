@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
+using System.Media;
 
 namespace GuessTheMelody
 {
@@ -105,6 +106,8 @@ namespace GuessTheMelody
             if (progressBar1.Value == progressBar1.Maximum)
             {
                 GameStop();
+                SoundPlayer sp = new SoundPlayer(Properties.Resources.instrument_fast);
+                sp.Play();
                 return;
             }
             if (musicDuration == 0) MakeMusic();
