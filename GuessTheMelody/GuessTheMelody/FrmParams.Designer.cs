@@ -36,15 +36,15 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.gbGameSettings = new System.Windows.Forms.GroupBox();
+            this.cbPlayer2 = new System.Windows.Forms.ComboBox();
+            this.cbPlayer1 = new System.Windows.Forms.ComboBox();
+            this.lblPlayer2 = new System.Windows.Forms.Label();
+            this.lblPlayer1 = new System.Windows.Forms.Label();
             this.cbMusicDuration = new System.Windows.Forms.ComboBox();
             this.cbGameDuration = new System.Windows.Forms.ComboBox();
             this.lblMusicDuration = new System.Windows.Forms.Label();
             this.chkbRandomStart = new System.Windows.Forms.CheckBox();
             this.lblGameDuration = new System.Windows.Forms.Label();
-            this.lblPlayer1 = new System.Windows.Forms.Label();
-            this.lblPlayer2 = new System.Windows.Forms.Label();
-            this.cbPlayer1 = new System.Windows.Forms.ComboBox();
-            this.cbPlayer2 = new System.Windows.Forms.ComboBox();
             this.gbGameSettings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,6 +127,42 @@
             this.gbGameSettings.TabStop = false;
             this.gbGameSettings.Text = "Настройки игры";
             // 
+            // cbPlayer2
+            // 
+            this.cbPlayer2.FormattingEnabled = true;
+            this.cbPlayer2.Location = new System.Drawing.Point(294, 56);
+            this.cbPlayer2.Name = "cbPlayer2";
+            this.cbPlayer2.Size = new System.Drawing.Size(76, 21);
+            this.cbPlayer2.TabIndex = 4;
+            this.cbPlayer2.Text = "P";
+            // 
+            // cbPlayer1
+            // 
+            this.cbPlayer1.FormattingEnabled = true;
+            this.cbPlayer1.Location = new System.Drawing.Point(294, 29);
+            this.cbPlayer1.Name = "cbPlayer1";
+            this.cbPlayer1.Size = new System.Drawing.Size(76, 21);
+            this.cbPlayer1.TabIndex = 4;
+            this.cbPlayer1.Text = "Q";
+            // 
+            // lblPlayer2
+            // 
+            this.lblPlayer2.AutoSize = true;
+            this.lblPlayer2.Location = new System.Drawing.Point(241, 59);
+            this.lblPlayer2.Name = "lblPlayer2";
+            this.lblPlayer2.Size = new System.Drawing.Size(47, 13);
+            this.lblPlayer2.TabIndex = 3;
+            this.lblPlayer2.Text = "Игрок 2";
+            // 
+            // lblPlayer1
+            // 
+            this.lblPlayer1.AutoSize = true;
+            this.lblPlayer1.Location = new System.Drawing.Point(241, 32);
+            this.lblPlayer1.Name = "lblPlayer1";
+            this.lblPlayer1.Size = new System.Drawing.Size(47, 13);
+            this.lblPlayer1.TabIndex = 3;
+            this.lblPlayer1.Text = "Игрок 1";
+            // 
             // cbMusicDuration
             // 
             this.cbMusicDuration.FormattingEnabled = true;
@@ -184,42 +220,6 @@
             this.lblGameDuration.Size = new System.Drawing.Size(169, 13);
             this.lblGameDuration.TabIndex = 0;
             this.lblGameDuration.Text = "Продолжительность игры (сек.)";
-            // 
-            // lblPlayer1
-            // 
-            this.lblPlayer1.AutoSize = true;
-            this.lblPlayer1.Location = new System.Drawing.Point(241, 32);
-            this.lblPlayer1.Name = "lblPlayer1";
-            this.lblPlayer1.Size = new System.Drawing.Size(47, 13);
-            this.lblPlayer1.TabIndex = 3;
-            this.lblPlayer1.Text = "Игрок 1";
-            // 
-            // lblPlayer2
-            // 
-            this.lblPlayer2.AutoSize = true;
-            this.lblPlayer2.Location = new System.Drawing.Point(241, 59);
-            this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(47, 13);
-            this.lblPlayer2.TabIndex = 3;
-            this.lblPlayer2.Text = "Игрок 2";
-            // 
-            // cbPlayer1
-            // 
-            this.cbPlayer1.FormattingEnabled = true;
-            this.cbPlayer1.Location = new System.Drawing.Point(294, 29);
-            this.cbPlayer1.Name = "cbPlayer1";
-            this.cbPlayer1.Size = new System.Drawing.Size(76, 21);
-            this.cbPlayer1.TabIndex = 4;
-            this.cbPlayer1.Text = "A";
-            // 
-            // cbPlayer2
-            // 
-            this.cbPlayer2.FormattingEnabled = true;
-            this.cbPlayer2.Location = new System.Drawing.Point(294, 56);
-            this.cbPlayer2.Name = "cbPlayer2";
-            this.cbPlayer2.Size = new System.Drawing.Size(76, 21);
-            this.cbPlayer2.TabIndex = 4;
-            this.cbPlayer2.Text = "P";
             // 
             // FrmParams
             // 
