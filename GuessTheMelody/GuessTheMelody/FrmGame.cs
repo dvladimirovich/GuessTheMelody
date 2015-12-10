@@ -16,7 +16,11 @@ namespace GuessTheMelody
     {
         Random rand = new Random();
         private int musicDuration = Victorina.MusicDuration;
-
+        
+        // массив флагов
+        // если один из игроков ответил неправильно, то он уже не может ответить на текущую песню
+        bool[] players = new bool[2];
+        
         public FrmGame()
         {
             InitializeComponent();
@@ -68,6 +72,8 @@ namespace GuessTheMelody
                 // wmp.Ctlcontrols.play(); // для автоматической игры
                 Victorina.TrackList.RemoveAt(n);
                 lblSongsCounter.Text = Victorina.TrackList.Count.ToString();
+                players[0] = false;
+                players[1] = false;
             }
         }
 
@@ -116,11 +122,13 @@ namespace GuessTheMelody
 
         private void FrmGame_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.A) // Игрок 1
+            if (!timer1.Enabled) return;
+            if (players[0] == false && e.KeyData == Keys.A) // Игрок 1
             {
                 GamePause();
                 FrmMessage message = new FrmMessage();
                 message.label1.Text = "Игрок 1";
+                players[0] = true;
                 if (message.ShowDialog() == DialogResult.Yes) /* MessageBox.Show("Правильный ответ?", "Игрок 1", MessageBoxButtons.YesNo) == DialogResult.Yes*/
                 {
                     lblCounter1.Text = (Convert.ToInt32(lblCounter1.Text) + 1).ToString();
@@ -128,11 +136,12 @@ namespace GuessTheMelody
                 }
                 GamePlay();
             }
-            if (e.KeyData == Keys.P) // Игрок 2
+            if (players[1] == false && e.KeyData == Keys.P) // Игрок 2
             {
                 GamePause();
                 FrmMessage message = new FrmMessage();
                 message.label1.Text = "Игрок 2";
+                players[1] = true;
                 if (message.ShowDialog() == DialogResult.Yes) /*MessageBox.Show("Правильный ответ?", "Игрок 2", MessageBoxButtons.YesNo) == DialogResult.Yes*/
                 {
                     lblCounter2.Text = (Convert.ToInt32(lblCounter2.Text) + 1).ToString();
