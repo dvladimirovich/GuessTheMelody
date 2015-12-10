@@ -129,7 +129,7 @@
             this.btnPause.Location = new System.Drawing.Point(140, 290);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(68, 43);
-            this.btnPause.TabIndex = 1;
+            this.btnPause.TabIndex = 2;
             this.btnPause.Text = "Пауза";
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
@@ -140,7 +140,7 @@
             this.btnContinue.Location = new System.Drawing.Point(214, 290);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(138, 43);
-            this.btnContinue.TabIndex = 1;
+            this.btnContinue.TabIndex = 3;
             this.btnContinue.Text = "Продолжить";
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);

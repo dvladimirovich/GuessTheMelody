@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 using WMPLib;
-using System.Media;
 
 namespace GuessTheMelody
 {
@@ -69,6 +62,7 @@ namespace GuessTheMelody
                 musicDuration = Victorina.MusicDuration;
                 int n = rand.Next(0, Victorina.TrackList.Count);
                 WMP.URL = Victorina.TrackList[n];
+                Victorina.Answer = WMP.URL;
                 // wmp.Ctlcontrols.play(); // для автоматической игры
                 Victorina.TrackList.RemoveAt(n);
                 lblSongsCounter.Text = Victorina.TrackList.Count.ToString();
@@ -122,8 +116,19 @@ namespace GuessTheMelody
 
         private void FrmGame_KeyDown(object sender, KeyEventArgs e)
         {
+            if (timer1.Enabled && e.KeyData == Keys.Space)
+            {
+                btnPause_Click(this, EventArgs.Empty);
+                return;
+            }
+            // TODO: Обработать нажатие клавиши пробела
+            if (!timer1.Enabled && e.KeyData == Keys.Space && WMP.playState == WMPPlayState.wmppsPaused)
+            {
+                btnContinue_Click(this, EventArgs.Empty);
+                return;
+            }
             if (!timer1.Enabled) return;
-            if (players[0] == false && e.KeyData == Keys.A) // Игрок 1
+            if (players[0] == false && e.KeyData == Keys.Q) // Игрок 1
             {
                 GamePause();
                 FrmMessage message = new FrmMessage();
