@@ -36,6 +36,11 @@ namespace GuessTheMelody
         public static int MusicDuration = 10;
 
         /// <summary>
+        /// Полный путь к проигрываемому файлу, включая название трека
+        /// </summary>
+        public static string Answer = "";
+
+        /// <summary>
         /// Считать музыкальные композиции
         /// </summary>
         public static void ReadMusic()
