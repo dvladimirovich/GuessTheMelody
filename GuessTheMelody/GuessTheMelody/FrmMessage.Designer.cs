@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTime = new System.Windows.Forms.Label();
+            this.lblShowAnswer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnYes
@@ -81,6 +82,21 @@
             this.lblTime.TabIndex = 2;
             this.lblTime.Text = "0";
             // 
+            // lblShowAnswer
+            // 
+            this.lblShowAnswer.AutoSize = true;
+            this.lblShowAnswer.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblShowAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblShowAnswer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblShowAnswer.Location = new System.Drawing.Point(13, 170);
+            this.lblShowAnswer.Name = "lblShowAnswer";
+            this.lblShowAnswer.Size = new System.Drawing.Size(87, 13);
+            this.lblShowAnswer.TabIndex = 3;
+            this.lblShowAnswer.Text = "Показать ответ";
+            this.lblShowAnswer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblShowAnswer_MouseClick);
+            this.lblShowAnswer.MouseEnter += new System.EventHandler(this.lblShowAnswer_MouseEnter);
+            this.lblShowAnswer.MouseLeave += new System.EventHandler(this.lblShowAnswer_MouseLeave);
+            // 
             // FrmMessage
             // 
             this.AcceptButton = this.btnYes;
@@ -88,6 +104,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnNo;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.lblShowAnswer);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNo);
@@ -109,5 +126,6 @@
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblShowAnswer;
     }
 }
